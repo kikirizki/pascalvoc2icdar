@@ -60,6 +60,6 @@ def save_asjson(img_path, label_path):
 
 for img_name in os.listdir("images"):
     txt_name = img_name.replace("jpg","txt")
-    txt_path = os.path.join("labels",txt_name)
+    txt_path = os.path.join("labels_txt",txt_name)
     img_path = os.path.join("images",img_name)
     save_asjson(img_path,txt_path)
