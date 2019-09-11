@@ -22,6 +22,8 @@ def convert_named_polygon(named_polygon):
 
 
 def save_asjson(img_path, label_path):
+    h,w,c = cv2.imread(img_path).shape
+    
     with open(img_path, mode='rb') as file:
         img = file.read()
 
@@ -49,8 +51,8 @@ def save_asjson(img_path, label_path):
         ],
         "imagePath": img_path.split("/")[-1],
         "imageData": img_data,
-        "imageHeight": 720,
-        "imageWidth": 1280
+        "imageHeight": h ,
+        "imageWidth": w
     }
     json_name = img_path.split('/')[-1].replace("jpg","json")
     with open(os.path.join("images",json_name), "w") as f:
